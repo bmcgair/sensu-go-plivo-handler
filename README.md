@@ -17,7 +17,7 @@
 This handler enables Sensu Go users to send SMS alerts using plivo. There are some prerequisites that are required in order to be able to use this handler. 
 
 1. You must have a plivo account
-2. You must obtain an [auth token]
+2. You must obtain an auth token
 3. You must obtain an account SID
 4. You must have a plivo phone number
 
@@ -37,10 +37,10 @@ Usage:
   sensu-go-plivo-handler [flags]
 
 Flags:
-  -s, --accountSid  string   The account SID for your plivo account, uses the environment variable plivo_ACCOUNT_SID by default
-  -t, --authToken   string   The authorization token for your plivo account, uses the environment variable plivo_AUTH_TOKEN by default
-  -f, --fromNumber  string   Your plivo phone number
-  -r, --recipient   string   The recipient's phone number
+  -s, --accountSid  string   The account SID for your plivo account, uses the environment variable PLIVO_ACCOUNT_SID by default
+  -t, --authToken   string   The authorization token for your plivo account, uses the environment variable PLIVO_AUTH_TOKEN by default
+  -f, --fromNumber  string   Your plivo phone number, uses PLIVO_FROM_NUMBER by default
+  -r, --recipient   string   The recipient's phone number, uses PLIVO_RECIPIENT_LIST by default
   -h, --help                 help for sensu-go-plivo-handler
 ```
 
@@ -55,7 +55,7 @@ git clone github.com/bmcgair/sensu-go-plivo-handler
 
 Run the following command:
 ```
-cat example-event.json | ./sensu-go-plivo-handler  -s ACCTSIDXXXXXXXXXXXX -t AUTHTOKENXXXXXXXXXX  -f +18558675309 -r +18559990210
+cat example-event.json | ./sensu-go-plivo-handler  -s ACCTSIDXXXXXXXXXXXX -t AUTHTOKENXXXXXXXXXX  -f +18558675309 -r "+18559990210<+18559990211"
 ```
 
 You should then receive a message to your phone with the output of the error.
@@ -137,8 +137,8 @@ Example Sensu Go definition:
   "spec": {
     "command": "sensu-go-plivo-handler -f +18558675309 -r +18559990210",
     "env_vars": [
-      "plivo_ACCOUNT_SID=ACCTSIDXXXXXXXXXXXX",
-      "plivo_AUTH_TOKEN=AUTHTOKENXXXXXXXXXX"
+      "PLIVO_ACCOUNT_SID=ACCTSIDXXXXXXXXXXXX",
+      "PLIVO_AUTH_TOKEN=AUTHTOKENXXXXXXXXXX"
     ],
     "filters": [
       "is_incident",
@@ -157,12 +157,12 @@ type: Handler
 api_version: core/v2
 metadata:
   name: sensu-go-plivo-handler
-  namespace: CHANGEME
+  namespace: default
 spec:
   command: sensu-go-plivo-handler -f +18558675309 -r +18559990210
   env_vars:
-  - plivo_ACCOUNT_SID=ACCTSIDXXXXXXXXXXXX
-  - plivo_AUTH_TOKEN=AUTHTOKENXXXXXXXXXX
+  - PLIVO_ACCOUNT_SID=ACCTSIDXXXXXXXXXXXX
+  - PLIVO_AUTH_TOKEN=AUTHTOKENXXXXXXXXXX
   filters:
   - is_incident
   - not_silenced
