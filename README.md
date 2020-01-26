@@ -180,7 +180,7 @@ or create an executable script from this source.
 From the local path of the sensu-go-plivo-handler repository:
 
 ```
-go build -o /usr/local/bin/sensu-go-plivo-handler main.go
+go build -o build/bin/sensu-go-plivo-handler -ldflags "-linkmode external -extldflags -static" -a main.go
 ```
 
 See [CONTRIBUTING][2] for more information on how to contribute to this plugin.
