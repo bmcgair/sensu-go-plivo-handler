@@ -1,5 +1,3 @@
-[![Bonsai Asset Badge](https://img.shields.io/badge/Sensu%20Go%20plivo%20Handler-Download%20Me-brightgreen.svg?colorB=89C967&logo=sensu)](https://bonsai.sensu.io/assets/asachs01/sensu-go-plivo-handler) [![TravisCI Build Status](https://travis-ci.org/asachs01/sensu-go-plivo-handler.svg?branch=master)](https://travis-ci.org/asachs01/sensu-go-plivo-handler)
-
 # Sensu Go plivo Handler Plugin
 
 - [Overview](#overview)
@@ -50,7 +48,7 @@ To test and see if this handler works, do the following:
 
 Clone the repo:
 ```
-git clone github.com/bmcgair/sensu-go-plivo-handler
+git clone github.com/ridewithgps/sensu-go-plivo-handler
 ```
 
 Run the following command:
@@ -60,7 +58,6 @@ cat example-event.json | ./sensu-go-plivo-handler  -s ACCTSIDXXXXXXXXXXXX -t AUT
 
 You should then receive a message to your phone with the output of the error.
 
-![plivo alert screenshot](https://p299.p4.n0.cdn.getcloudapp.com/items/5zuJew4X/Screenshot_20190717-232020.png?v=f0244404f5516401e54d2ab64df1533d)
 
 ### Using the handler with one or more contacts
 
@@ -72,7 +69,7 @@ It is possible to use this plugin with multiple contacts, rather than a single n
 
 Assets are the best way to make use of this handler. If you're not using an asset, please consider doing so! If you're using sensuctl 5.13 or later, you can use the following command to add the asset: 
 
-`sensuctl asset add bmcgair/sensu-go-plivo-handler`
+`sensuctl asset add ridewithgps/sensu-go-plivo-handler`
 
 
 ### Asset definition
@@ -92,7 +89,7 @@ You can download the asset definition there, or you can do a little bit of copy/
     }
   },
   "spec": {
-    "url": "https://github.com/asachs01/sensu-go-plivo-handler/releases/download/0.0.1/sensu-go-plivo-handler_0.0.1_linux_amd64.tar.gz",
+    "url": "https://github.com/ridewithgps/sensu-go-plivo-handler/releases/download/0.0.1/sensu-go-plivo-handler_0.0.1_linux_amd64.tar.gz",
     "sha512": "d054f14570069301dedf600e58ca7df78bd74e83377a44fee969a898e75c40ce1a30ee7eb24ce1a1c7f31c820a84e33b74cfb5b69163af22a45d6745eae780f0",
     "filters": [
       "entity.system.os == 'linux'",
@@ -112,7 +109,7 @@ metadata:
   labels: {}
   annotations: {}
 spec:
-  url: https://github.com/asachs01/sensu-go-plivo-handler/releases/download/0.0.1/sensu-go-plivo-handler_0.0.1_linux_amd64.tar.gz
+  url: https://github.com/ridewithgps/sensu-go-plivo-handler/releases/download/0.0.1/sensu-go-plivo-handler_0.0.1_linux_amd64.tar.gz
   sha512: d054f14570069301dedf600e58ca7df78bd74e83377a44fee969a898e75c40ce1a30ee7eb24ce1a1c7f31c820a84e33b74cfb5b69163af22a45d6745eae780f0
   filters:
   - entity.system.os == 'linux'
@@ -193,9 +190,9 @@ Support for this asset is as follows:
 * Linux 64 bit
 * Arm 64 bit
 
-This is mostly due to the fact that this plugin is a handler. If you have the Sensu Go backend running on a different platform, [open an issue](https://github.com/asachs01/sensu-go-plivo-handler/issues/new) and provide some further details about the platform you'd like to see supported.
+This is mostly due to the fact that this plugin is a handler. If you have the Sensu Go backend running on a different platform, [open an issue](https://github.com/ridewithgps/sensu-go-plivo-handler/issues/new) and provide some further details about the platform you'd like to see supported.
 
 
-[1]: https://github.com/asachs01/sensu-go-plivo-handler/releases
-[2]: https://github.com/asachs01/sensu-go-plivo-handler/blob/master/CONTRIBUTING.md
+[1]: https://github.com/ridewithgps/sensu-go-plivo-handler/releases
+[2]: https://github.com/ridewithgps/sensu-go-plivo-handler/blob/master/CONTRIBUTING.md
 
